@@ -25,6 +25,8 @@
 
 describe('Refactored Locators Practice with Command Queue', () => {
 
+   // ensures the actual site is opened first
+
   beforeEach(() => {
     cy.visit('https://rahulshettyacademy.com/seleniumPractise/#/')
   })
@@ -63,7 +65,7 @@ describe('Refactored Locators Practice with Command Queue', () => {
   })
 
   it('should demonstrate promise-like chaining with .then()', () => {
-    // Cypress commands are queued; .then() runs when cy.get() resolves
+    // Cypress commands are queued, .then() runs when cy.get() resolves
     cy.get('.search-keyword').then(($input) => {
       // You can safely access DOM elements here
       cy.wrap($input).clear().type('Carrot')
