@@ -26,7 +26,7 @@
 describe('Refactored Locators Practice with Command Queue', () => {
 
   beforeEach(() => {
-    cy.visit('https://rahulshettyacademy.com/seleniumPractise/#/')
+   cy.visit(Cypress.env('url') + "/seleniumPractise/#/")
   })
 
   it('should locate and interact with visible elements using chaining', () => {

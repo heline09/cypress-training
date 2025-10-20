@@ -6,7 +6,7 @@ import 'cypress-iframe';
 describe('Week 2 - Advanced UI Interactions', () => {
 
   it('Interacts with an element inside an iframe safely', () => {
-    cy.visit('https://rahulshettyacademy.com/AutomationPractice/')
+    cy.visit(Cypress.env('url') + '/AutomationPractice/')
 
     // Load the iframe first
     cy.frameLoaded('#courses-iframe')

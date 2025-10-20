@@ -1,9 +1,11 @@
 /// <reference types= "cypress" />
 
 describe('Handling Alerts and Popups', () => {
+  beforeEach(() => {
+    cy.visit(Cypress.env('url') + "/AutomationPractice/#/")
+  })
 
   it('Handles JS alert', () => {
-    cy.visit('https://rahulshettyacademy.com/AutomationPractice/')
 
     // Click the alert button
     cy.get('#alertbtn').click()
@@ -15,8 +17,6 @@ describe('Handling Alerts and Popups', () => {
   })
 
   it('Handles Confirm alert', () => {
-    cy.visit('https://rahulshettyacademy.com/AutomationPractice/')
-
     // Click the confirm button
     cy.get('[value="Confirm"]').click()
 
@@ -27,17 +27,16 @@ describe('Handling Alerts and Popups', () => {
   })
 
   it('Handles child tabs or windows', () => {
-  cy.visit('https://rahulshettyacademy.com/AutomationPractice/')
 
-  // Remove 'target' attribute so it opens in same tab
-  cy.get('#opentab').invoke('removeAttr', 'target').click()
+    // Remove 'target' attribute so it opens in same tab
+    cy.get('#opentab').invoke('removeAttr', 'target').click()
 
-  // Switch context to the new domain
-  cy.origin('https://www.qaclickacademy.com', () => {
-    cy.get('#navbarSupportedContent a[href*="about"]').click()
-    cy.get('.mt-50 h2').should('contain', 'QAClick Academy')
+    // Switch context to the new domain
+    cy.origin('https://www.qaclickacademy.com', () => {
+      cy.get('#navbarSupportedContent a[href*="about"]').click()
+      cy.get('.mt-50 h2').should('contain', 'QAClick Academy')
+    })
   })
-})
 
 
 })

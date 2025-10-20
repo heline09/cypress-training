@@ -12,7 +12,7 @@ describe('End to End Ecommerce test', function () {
     it('submit order', function () {
         const productName = this.data.productName
 
-        this.homepage.goTo("https://rahulshettyacademy.com/loginpagePractise/")
+        cy.visit(Cypress.env('url') +"/loginpagePractise/")
 
         const productPage = this.homepage.login(this.data.username, this.data.password)
         // cy.pause() // for debugging
