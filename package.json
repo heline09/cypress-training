@@ -17,6 +17,11 @@
   },
   "homepage": "https://github.com/heline09/cypress-training#readme",
   "devDependencies": {
-    "cypress": "^15.4.0"
+    "cypress": "^15.4.0",
+    "cypress-iframe": "^1.0.1"
+  },
+  "dependencies": {
+    "@badeball/cypress-cucumber-preprocessor": "^23.2.1",
+    "@cypress/browserify-preprocessor": "latest"
   }
 }
