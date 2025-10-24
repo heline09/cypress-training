@@ -13,7 +13,7 @@ When('I log in to the application', function() {
     this.productPage.getCardCount().should('have.length', 4)
 })
 
-When ('I log in to application portal', function(){
+When ('I log in to the application portal', function(dataTable){
     this.productPage = homepage.login(dataTable.rawTable[1][0], dataTable.rawTable[1][1])
     this.productPage.pageValidation()
     this.productPage.getCardCount().should('have.length', 4)
