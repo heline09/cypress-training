@@ -1,3 +1,4 @@
+require('dotenv').config();
 const { defineConfig } = require("cypress");
 const browserify = require("@cypress/browserify-preprocessor");
 const {
@@ -20,12 +21,14 @@ async function setupNodeEvents(on, config) {
 }
 module.exports = defineConfig({
   defaultCommandTimeout: 6000,
-   env: {
-    url: "https://rahulshettyacademy.com"
+  env: {
+    url: "https://rahulshettyacademy.com",
+    userEmail: process.env.USER_EMAIL,
+    userPassword: process.env.USER_PASSWORD
   },
   e2e: {
     setupNodeEvents,
-   specPattern: [
+    specPattern: [
       "cypress/integration/**/*.js",     // all regular Cypress tests
       "cypress/integration/**/*.feature" // all BDD Cucumber tests
     ],
