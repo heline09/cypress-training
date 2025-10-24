@@ -24,8 +24,20 @@
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
+// Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+
 Cypress.Commands.add("login", (username, password) => {
-    cy.get('#username').type(username)
-    cy.get('#password').type(password)
-    cy.contains("Sign In").click()
+  cy.get('#username').type(username)
+  cy.get('#password').type(password)
+  cy.contains("Sign In").click()
+})
+
+Cypress.Commands.add("LoginAPI", () => {
+  cy.request("POST", "https://rahulshettyacademy.com/api/ecom/auth/login", {  
+    userEmail: Cypress.env("userEmail"),
+    userPassword: Cypress.env("userPassword")
+  }).then(function (response) {
+    expect(response.status).to.eq(200)
+    Cypress.env('token', response.body.token);
+  })
 })
