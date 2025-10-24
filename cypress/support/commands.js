@@ -29,11 +29,3 @@ Cypress.Commands.add("login", (username, password) => {
     cy.get('#password').type(password)
     cy.contains("Sign In").click()
 })
-
-Cypress.Commands.add("LoginAPI", () => {
-    cy.request("POST", "https://rahulshettyacademy.com/api/ecom/auth/login", { "userEmail": "Jdoe25@gmail.com", "userPassword": "Jane@2005" }).
-    then(function (response) {
-      expect(response.status).to.eq(200)
-      Cypress.env('token',response.body.token);
-    })
-})
