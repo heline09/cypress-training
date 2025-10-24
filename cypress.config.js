@@ -32,6 +32,7 @@ module.exports = defineConfig({
       "cypress/integration/**/*.js",     // all regular Cypress tests
       "cypress/integration/**/*.feature" // all BDD Cucumber tests
     ],
+
   },
 });
 
